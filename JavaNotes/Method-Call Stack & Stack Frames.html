@@ -1,0 +1,32 @@
+﻿<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Method-Call Stack &amp; Stack Frames</title>
+  <link rel="stylesheet" href="https://stackedit.io/style.css" />
+</head>
+
+<body class="stackedit">
+  <div class="stackedit__html"><h2 id="method-call-stack--activation-records">Method-Call Stack &amp; Activation Records</h2>
+<p>To understand how Java performs method calls, it is important to look at a data structure called a <code>stack</code></p>
+<p>a stack is like a pile<br>
+when something is <em>pushed</em> on to the stack, it is added on top; when something is popped, it is removed off the top of the stack</p>
+<p><em>Stacks are known as</em> <strong>LIFO</strong> <em>data structures</em></p>
+<ul>
+<li>the last item pushed is the first item popped</li>
+</ul>
+<h3 id="method-call-stacks">Method-Call Stacks</h3>
+<p>The  <strong>method-call stack</strong>  (sometimes referred to as the  <strong>program-execution stack</strong>) is a data structure that works behind the scenes to support the method call/return mechanism. It also supports the creation, maintenance and destruction of each called method’s local variables.</p>
+<h3 id="stack-frames">7.11.2 Stack Frames</h3>
+<p>As each method is called, it may, in turn, call other methods, which may, in turn, call other methods—all  <em>before</em>  any of the methods return. Each method eventually must return control to the method that called it. So, somehow, the system must keep track of the  <em>return addresses</em>  that each method needs in order to return control to the method that called it. The method-call stack is the perfect data structure for handling this information. Each time a method calls another method, an entry is  <em>pushed</em>  onto the stack. This entry, called a  <strong>stack frame</strong>  or an  <strong>activation record</strong>, contains the  <em>return address</em>  that the called method needs in order to return to the calling method. It also contains some additional information we’ll soon discuss. If the called method returns instead of calling another method before returning, the stack frame for the method call is  <em>popped</em>, and control transfers to the return address in the popped stack frame. The same techniques apply when a method accesses a property or when a property calls a method.</p>
+<p>The beauty of the call stack is that each called method  <em>always</em>  finds the information it needs to return to its caller at the  <em>top</em>  of the call stack. And, if a method makes a call to another method, a stack frame for the new method call is simply  <em>pushed</em>  onto the call stack. Thus, the return address required by the newly called method to return to its caller is now located at the  <em>top</em>  of the stack.</p>
+<h3 id="local-variables-and-stack-frames">Local Variables and Stack Frames</h3>
+<p>The stack frames have another important responsibility. Most methods have local variables—parameters and any local variables the method declares. Local variables need to exist while a method is executing. They need to remain active if the method makes calls to other methods. But when a called method returns to its caller, the called method’s local variables need to “go away.” The called method’s stack frame is a perfect place to reserve the memory for the called method’s local variables. That stack frame exists as long as the called method is active. When that method returns—and no longer needs its local variables—its stack frame is  <em>popped</em>  from the stack, and those local variables no longer exist.</p>
+<h3 id="stack-overflow">Stack Overflow</h3>
+<p>Of course, the amount of memory in a computer is finite, so only a certain amount of memory can be used to store activation records on the method-call stack. If more method calls occur than can have their activation records stored on the method-call stack, a fatal error known as  <strong>stack overflow</strong>  occurs2—typically caused by infinite recursion</p>
+</div>
+</body>
+
+</html>

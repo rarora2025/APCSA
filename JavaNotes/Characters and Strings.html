@@ -1,0 +1,195 @@
+﻿<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Characters and Strings</title>
+  <link rel="stylesheet" href="https://stackedit.io/style.css" />
+</head>
+
+<body class="stackedit">
+  <div class="stackedit__html"><p><strong>Fundamentals of Characters and Strings</strong></p>
+<p>What are <em>character literals</em>?</p>
+<ul>
+<li>an integer value represented as a character in single quotes. For example, <code>'z'</code> represents the integer value of the letter z, and <code>'\t'</code> represents the integer value of a tab character.</li>
+</ul>
+<p>What are <em>String literals</em>?</p>
+<ul>
+<li>a sequence of characters in double quotation marks; stored in memory as a <code>String</code> object</li>
+<li>may be assigned to a <code>String</code> reference; For example<br>
+<code>String color = blue;</code></li>
+</ul>
+<p><strong>String Methods</strong></p>
+<p>There are three major <code>String</code> methods:</p>
+<ul>
+<li><code>length</code></li>
+<li><code>charAt</code></li>
+<li><code>getChars</code></li>
+</ul>
+<p>To use <code>length</code>, attach the <code>.length()</code> suffix to the end of a String, which will return the length of a String</p>
+<p>To use <code>charAt</code>, attach the <code>.charAt(int)</code> suffix with a parameter stating the index of which character in the String you’d like.</p>
+<p>The method <code>getChars()</code> has four parameters, and it is ued to copy characters from a string to a char array. Like the other methods, it can be utilized by attaching the suffix to the end of a String, with the four parameters as follows:<br>
+Parameter 1: starting index of characters being copied<br>
+Parameter 2: one past the index of the last character you want to be copied<br>
+Parameter 3: the character array that you want the characters to be copied into<br>
+Parameter 4: the starting index where the copied characters are placed into in the new array</p>
+<p><code>getChars(startIndex, endIndex, targetArray, targetArrayinsertIndex)</code></p>
+<p><strong>Comparing Strings</strong></p>
+<p>Methods:</p>
+<ul>
+<li><code>.equals()</code></li>
+<li><code>.equalsIgnoreCase()</code></li>
+<li><code>.compareTo()</code></li>
+<li><code>.regionMatches()</code></li>
+</ul>
+<p><code>.equals()</code> compares the <em>values</em> (using a <strong>lexicographical comparison)</strong> stored into variables, whereas  <code>==</code> compares the <em>references</em> of the variables- or the address in memory. <code>.equals()</code> returns <code>true</code> if the values are equivalent, and <code>false</code> if they are different</p>
+<p>Syntax:<br>
+<code>s1.equals(s2);</code></p>
+<hr>
+<p>The <code>equalsIgnoreCase()</code> method compares two strings irrespective of the case (lower or upper) of the string. This method returns true if the argument is not null and it represents an equivalent String ignoring case, else false.</p>
+<p>Syntax:<br>
+<code>str2.equalsIgnoreCase(str1);</code></p>
+<hr>
+<p><code>compareTo()</code> is used for comparing two strings lexicographically. Each character of both strings are converted into a Unicode value. However, if both the strings are equal, then this method returns 0 else it only result either negative or positive value.</p>
+<p>Syntax:<br>
+<code>str2.compareTo(str1);</code></p>
+<hr>
+<p>The  startsWith() method is used for checking prefix of a String. It returns a boolean value true or false based on whether the given string begins with the specified letter or word.</p>
+<p><strong>For example:</strong><br>
+<code>String str = "Hello";</code><br>
+<code>//This will return true because string str starts with "He"</code><br>
+<code>str.startsWith("He");</code></p>
+<p>– If you want to check if a word starts with something, but not directly at the beginning, use the index parameter, after the prefix you are checking. For example if you want to see if the word “Hello” starts with “el” at the second position, do this:<br>
+<code>str.startsWith("el", 1);</code></p>
+<hr>
+<p>Java String <code>endsWith(String suffix)</code> method checks whether the <code>String</code> ends with a specified suffix. This method returns a boolean value true or false. If the specified suffix is found at the end of the string then it returns true else it returns false.</p>
+<p><strong>For example:</strong><br>
+<code>String str = "Hello";</code><br>
+<code>//This will return true because string str ends with "lo"</code><br>
+<code>str.endsWith("lo");</code></p>
+<p><strong>IndexOf() and lastIndexOf()</strong></p>
+<p>IndexOf() returns the index of the first occurrence of a character/substring in a given String or part of a string.</p>
+<p>The syntax of the method is as follows:</p>
+<p>x = character/substring you are looking for in “String”<br>
+y = position in “String” where you should start searching for x</p>
+<p><code>String.indexOf(x, y)</code></p>
+<hr>
+<p>The <code>lastIndexOf()</code> method works the same way. It returns the position of the last occurrence of specified character/substring in a string/part of a string.</p>
+<p>For example,</p>
+<pre><code>String myStr = "Hello planet earth, you are a great planet.";
+System.out.println(myStr.lastIndexOf("planet"));
+</code></pre>
+<p><strong>Substring Methods</strong><br>
+The substring methods extract certain characters from a string:</p>
+<pre><code>//this will extract characters 1-3 (doesn't do last index)
+var  str =  "Hello world!";  
+var  res = str.substring(1,  4);
+</code></pre>
+<hr>
+<p><strong>Concatenating Methods</strong><br>
+The concat() method concatenates one string to the end of another string. This method returns a string with the value of the string passed into the method, appended to the end of the string.</p>
+<p>For example:</p>
+<pre><code>String s = "Gfg";
+s = s.concat("! is the best.");
+System.out.println(s);
+</code></pre>
+<p>or</p>
+<pre><code>String h = "Happy";
+full = h.concat(" Birthday");
+System.out.println(full);
+</code></pre>
+<hr>
+<p><strong>Other <code>String</code> Methods</strong></p>
+<ul>
+<li><code>replace()</code>: replaces first parameter with second</li>
+<li><code>toLowerCase()</code>: makes the entire String lowercase</li>
+<li><code>toUpperCase()</code>: makes the entire String uppercase</li>
+<li><code>trim()</code>: removes all trailing/leading spaces</li>
+<li><code>toCharArray()</code>: converts a String into an array (char) containing the letters of that word</li>
+</ul>
+<p>*When calling these methods on a String, the original String remains unchanged</p>
+<p>Examples (Syntax):</p>
+<pre><code>String s1 = "happx";
+String s2 = s1.replace('x', 'y');
+</code></pre>
+<pre><code>String s1 = "HApPy;
+String lower = s1.toLowerCase();
+String upper = lower.toUpperCase();
+</code></pre>
+<pre><code>String s1 = "  space  ";
+String withoutspace = s1.trim();
+</code></pre>
+<pre><code>String s1 = "hello";
+String charArray = s1.toCharArray();
+</code></pre>
+<hr>
+<p><strong><code>valueOf()</code> Method</strong></p>
+<ul>
+<li>basically the same thing as the <code>toString()</code> method</li>
+</ul>
+<p>-<code>String.valueOf(Object)</code>  will return  <code>null</code>, whereas  <code>Object::toString()</code>  will throw a null pointer exception.</p>
+<ul>
+<li>valueOf() method of String class is static (doesn’t need an object to be called on), whereas toString() method of String class is non static.</li>
+</ul>
+<hr>
+<p><strong>Buffers</strong><br>
+Imagine that you’re eating candy out of a bowl. You take one piece regularly. To prevent the bowl from running out, someone might refill the bowl before it gets empty, so that when you want to take another piece, there’s candy in the bowl.</p>
+<p>The bowl acts as a buffer between you and the candy bag.</p>
+<p>If you’re watching a movie online, the web service will continually download the next 5 minutes or so into a buffer, that way your computer doesn’t have to download the movie as you’re watching it (which would cause hanging).</p>
+<p><strong>How to Create a new StringBuilder Buffer</strong></p>
+<ul>
+<li>create a new <code>StringBuilder</code> Object and name it buffer.<br>
+–There are 4 constructors/different ways you can create this; three of them are as follows:</li>
+</ul>
+<ol>
+<li>
+<p><code>StringBuilder() // will create a Builder with an initial capacity of 16 characters</code></p>
+</li>
+<li>
+<p><code>StringBulder(10) // will create a Builder w/ an initial capacity of the 10 characters</code></p>
+</li>
+<li>
+<p><code>StringBuilder("Hello") // will create a Builder with an initial capacity of 16 + number of characters in the String given- 21</code></p>
+</li>
+</ol>
+<hr>
+<p><strong>StringBuilder Methods</strong></p>
+<ul>
+<li><code>buffer.length()</code>: returns number of chars currently in String builder</li>
+<li><code>buffer.capacity()</code>: returns number of characters that can be stored without allocating more memory</li>
+<li><code>buffer.ensureCapacity(int)</code>: expands the capacity of a String builder to at MINIMUM the specified number</li>
+<li><code>buffer.setLength(int target)</code>: either removes trailing characters until number of characters is the target number, or adds null characters until number of characters is the target number</li>
+</ul>
+<p><em>Manipulating Characters</em></p>
+<ul>
+<li>
+<p><code>buffer.charAt(int index)</code>: returns the character of the StringBuilder at the given index</p>
+</li>
+<li>
+<p><code>buffer.setCharAt(int index, char new char)</code>: takes the char at specified index of String builder, and replaces it with the new char (argument) given.</p>
+</li>
+<li>
+<p><code>buffer.getChars(int srcBegin, int srcEnd, char[] dst, int dstBegin)</code>: copies the characters starting at the given index:srcBegin to index:srcEnd-1 from String contained by StringBuilder into an array of char passed as parameter to function.</p>
+</li>
+<li>
+<p><code>buffer.reverse()</code>: reverses the contents of the StringBuilder.</p>
+</li>
+<li>
+<p><code>buffer.insert(int index_position, thingtoinsert)</code>: inserts the string representation of given data type at given position</p>
+</li>
+<li>
+<p><code>buffer.delete(int startindex, int endindex)</code>: removes the characters in a substring of this StringBuffer. The substring begins at the specified start and extends to the character at index end - 1 or to the end of the StringBuffer if no such character exists.</p>
+</li>
+<li>
+<p><code>buffer.deleteCharAt(int index)</code>: removes the char at the specified position in this sequence</p>
+</li>
+<li>
+<p><code>buffer.append()</code>: add something to the end of a String builder</p>
+</li>
+</ul>
+<p>– if you want to add a new line in a string, append a <code>System.getProperty("line.seperator")</code> to the end of a String builder</p>
+</div>
+</body>
+
+</html>

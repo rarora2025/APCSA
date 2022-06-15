@@ -1,0 +1,204 @@
+﻿<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Inheritance</title>
+  <link rel="stylesheet" href="https://stackedit.io/style.css" />
+</head>
+
+<body class="stackedit">
+  <div class="stackedit__html"><h2 id="inheritance">Inheritance</h2>
+<ul>
+<li>
+<p>the design and programming concept of building on existing classes to create new more specialized classes.</p>
+</li>
+<li>
+<p>sometimes referred to as specialization, because a class can exhibit the behaviors from another class and modify them so that they operate appropriately for theirself</p>
+</li>
+<li>
+<p>an “is-a” relationship</p>
+</li>
+</ul>
+<p><em>Why Inheritance?</em><br>
+Inheritance allows us to me more productive by the reuse of code, and it also improves reusability in your own java application.<br>
+The biggest advantage of Inheritance is that the code that is already present in base class need not be rewritten in the child class.</p>
+<p>How to use inheritance?<br>
+You the <code>extends</code> keyword after the class name to specify which class you want the new class to inherit from. For example:</p>
+<pre><code>class Dog extends Object {
+//Class dog is inheriting from class Object and all classes that Object inherits from 
+//Every class implicitly extends from class Object, so normally we don't explicity say so because we don't have to 
+
+}
+</code></pre>
+<p>The <code>superclass</code> :</p>
+<ul>
+<li>the existing class</li>
+<li>also called the <em>base class</em></li>
+<li>the parent class</li>
+</ul>
+<p>The <code>subclass</code>:</p>
+<ul>
+<li>the new class which is inheriting/extending from the <code>superclass</code></li>
+<li>also called the <em>derived</em> class, because they are defined based upon the superclass</li>
+<li>more specific, because it can add new methods and fields</li>
+<li>the child class</li>
+</ul>
+<p>THE UML SYMBOL FOR INHERITANCE IS AN ARROW WITH A CLEAR TRIANGULAR HEAD POINTING TO THE SUPERCLASS</p>
+<p>-Java supports only single inheritance, meaning that each class can only be derived from exactly one direct superclass. But classes can also be inherited from indirectly, because they technically also derive from every class above its direct superclass in the class hierarchy. This means that, in your UML diagram, you can only have up to one arrow pointing to each class, and up to one arrow coming from each class.</p>
+<p>-Every class in Java directly or indirectly extends or inherits from the Object Class.</p>
+<p><strong><code>Protected</code> members</strong></p>
+<ul>
+<li>intermediate level of access between <code>public</code> and <code>private</code></li>
+<li>it is visible to all subclasses/superclasses, and other classes in the same package</li>
+<li>Protected members stay protected- if something is protected in one class, then it remains protected in that class’s superclass, subclass, etc.</li>
+</ul>
+<p>When a subclass method overrides an inherited superclass method, the superclass version of the method can be accessed from the subclass by preceding the superclass method name with <code>super.methodName()</code></p>
+<p>–Java requires that the first task of any subclass constructor is to call its direct superclass’s constructor. If not done explicitly, it will implicitly call the superclass’s no-argument (default) constructor.</p>
+<p>Cons of using <code>Protected</code> over <code>Private</code></p>
+<ol>
+<li>values can directly be set- this isn’t always safe because no restrictions can be put on variables, for example, variables that should stay positive, such as one that represents someone age, could be directly set to a negative value.</li>
+<li>with private variables, since variables aren’t directly inherited, there is less dependency on superclasses. If we were to use protected or public variables, this creates a heavy dependency on superclasses which could become problematic. For example, if you changed the name of a superclass variable, you would have to change it in every place you used it in subclasses.</li>
+<li>class’s protected members are visible to ALL Classes in the same package, which is not always desirable</li>
+</ol>
+<p>All access modes:</p>
+
+<table>
+<thead>
+<tr>
+<th>Access Mode</th>
+<th>Meaning</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>public</code></td>
+<td>visible anywhere its class is visible</td>
+</tr>
+<tr>
+<td><code>private</code></td>
+<td>visible only to other members of its class</td>
+</tr>
+<tr>
+<td><code>protected</code></td>
+<td>visible to its class, subclass, and package</td>
+</tr>
+<tr>
+<td><code>not used</code></td>
+<td>visible anywhere within its own package</td>
+</tr>
+</tbody>
+</table><hr>
+<p><strong>Method <code>@Overriding</code></strong></p>
+<p>If you want to override/manipulate or customize a superclass’ method, declare the same exact method in the subclass: <strong>make sure the you use the exact same signature</strong></p>
+<p>*Note: (Make sure to use the <code>Override</code> keyword for assurance…)</p>
+<p>Method Signature includes:</p>
+<ul>
+<li>The name of the method.</li>
+<li>The number of parameters.</li>
+<li>The data types and order of the parameters.</li>
+</ul>
+<p>Another thing to keep in mind is that <strong>the visibility of the overriding method cannot be more restrictive than that of the inherited method</strong>.  This is to keep in place a basic rule of inheritance which is that a subclass instance should be replacable in place of a superclass instance.</p>
+<p>For example, if the method being overridden has public visibility, then the overriding method must also have public visibility because all other visibilities…protected and private…are more restrictive than public.<br>
+If the inherited method had, say, protected visibility, then the overriding method could be given protected or public visibility.</p>
+<ul>
+<li>
+<p><strong>To confirm that you are trying to override a method that already exists <strong>include the <code>@Override</code> keyword on the line above the method declaration</strong>, and you will get an error if you try to override a method that doesn’t exist (has a different signature or is less restrictive)</strong></p>
+</li>
+<li>
+<p>TO INDICATE A SUBCLASS METHOD THAT HAS BEEN OVERRIDEN IN A UML DIAGRAM, REMEMBER TO INDICATE INHERITANCE (ARROW), BUT ADDITIONALLY, RE-WRITE THE OVERRIDED METHOD (WITH THE SAME EXACT NOTATION/SIGNATURE) IN THE SUBCLASS’S UML CLASS DIAGRAM ASWELL</p>
+</li>
+</ul>
+<hr>
+<p><strong>The <code>final</code> keyword:</strong><br>
+To prevent a method from being overridden in subclasses, include the <code>final</code> keyword. The final keyword can also be used to declare constants for variables, and prevent inheritance in classes.</p>
+<p><img src="https://www.geeksforgeeks.org/wp-content/uploads/final-keyword-in-java.jpg" alt="enter image description here"></p>
+<hr>
+<p>A subclass’s constructor does not inherit it’s superclass’s constructor, but…<br>
+<strong>A Subclass’s Constructor must call its Superclass’s Constructor</strong></p>
+<p>Since all public and protected instance variables must be initialized in a constructor (not set/get methods), when they are inherited they also must be initialized in that class. That is why Java automatically calls the superclass’s constructor, because they don’t rely on you remembering to re-initialize all the instance variables that will be inherited.</p>
+<p>How to explicitly do it?<br>
+Because it is implicitly done, if the <strong>superclass does not have a no-argument constructor</strong> (which is bad practice- delegating constructor should be used), you will get an error, because the computer doesn’t know what to pass as arguments</p>
+<p>-&gt; <em>To call the superclass’s constructor EXPLICITLY</em>… use the <code>super</code> keyword followed by <code>parenthesis</code> with the constructor arguments inside. For example:</p>
+<pre><code>class Dog extends Animal {
+	public Dog(class, species, li
+fespan){
+	//make sure to include names for all variables that you will inherit to be used as arguments for the constructor
+	
+		super(class, species, lifespan);
+	}
+}
+</code></pre>
+<p><strong>Inherited Methods from the <code>Object</code> Class:</strong></p>
+
+<table>
+<thead>
+<tr>
+<th>Method</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>.equals()</td>
+<td>compares the place that the two objects are referencing to and returns true if they are both referencing the same place in memory</td>
+</tr>
+<tr>
+<td>.toString()</td>
+<td>returns a string representation of the given object: name of the object’s class, @ sign, and a hexidecimal representation for the object</td>
+</tr>
+<tr>
+<td>.getClass()</td>
+<td>returns a Class object that identifies the class of the current object- includes class name and other information: to only get the name of the class attach the <code>getName()</code> function on top of the get Class, which returns the package name followed by the class name- aka the fully-qualified name of the class it belongs to</td>
+</tr>
+<tr>
+<td>.finalize()</td>
+<td>used to perform some operations so that an object or variable can be deleted</td>
+</tr>
+<tr>
+<td>.clone()</td>
+<td>makes a copy of the object on which it is called on</td>
+</tr>
+</tbody>
+</table><h3 id="casting-objects">Casting Objects</h3>
+<p>There are 2 different ways you can cast an object:</p>
+<ul>
+<li>
+<p>Downcast</p>
+<ul>
+<li>When you cast down the class hierarchy</li>
+<li>Making the object more specific</li>
+</ul>
+</li>
+<li>
+<p>Upcast</p>
+<ul>
+<li>When you class up the class hierarchy</li>
+<li>Making the object less specific</li>
+<li>You don’t even need to specify the cast type in () because a base class object can always reference a subclass object</li>
+</ul>
+</li>
+</ul>
+<p>How to cast:</p>
+<ul>
+<li>in front of the variable name, include the type you would like to cast to in parenthesis<br>
+For Example:</li>
+</ul>
+<p><code>Dog dogAnimal = (Dog) myAnimal;</code></p>
+<p><em><strong>– you are only able to cast an object to a superclass or subclass of it (up or down its classs hierarchy</strong></em></p>
+<p>For example, a dog cannot be converted into a cat, because a dog and cat are both on the same level of class hierarchy</p>
+<p>To check wether or not an object is a part of a subclass/superclass of a given class, and wether or not it can be casted to that type, use the <code>instanceof</code> operator</p>
+<p><strong>Using the <code>instanceof</code> Operator:</strong></p>
+<ul>
+<li>a binary operator- requires two operands, an object and a type</li>
+<li>returns a boolean value<br>
+-<code>true</code> if a cast of the object to the type specified by the right operand is allowed<br>
+-<code>false</code> if a cast of the object to the type specified by the right operand will result in an error</li>
+</ul>
+<p>Example:<br>
+<code>dog instanceof Animal //results in true</code></p>
+</div>
+</body>
+
+</html>

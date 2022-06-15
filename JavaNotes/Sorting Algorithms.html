@@ -1,0 +1,161 @@
+﻿<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sorting Algorithms</title>
+  <link rel="stylesheet" href="https://stackedit.io/style.css" />
+</head>
+
+<body class="stackedit">
+  <div class="stackedit__html"><h2 id="sorting-algorithms">Sorting Algorithms</h2>
+<p>A Sorting Algorithm is used to arrange data in ascending or descending order based upon one or more sort keys.</p>
+<ul>
+<li>Algorithms that sort data are called sort algorithmsor sorting algorithms.</li>
+</ul>
+<p><strong>The Selection Sort Algorithm- O(n^2) Complexity</strong></p>
+<p>The selection sort algorithm is a very simple sort algorithm. Suppose we have a list of numbers that we want to sort in ascending order.  In selection sort algorithm, we search for the lowest element and arrange it to the proper location. We swap the current element with the next lowest number.</p>
+<h4 id="how-does-selection-sort-work">How does selection sort work?</h4>
+<p>The selection sort algorithm works in a very simple way. It maintains two subarray for the given array.</p>
+<ul>
+<li>The subarray is already sorted.</li>
+<li>And the second subarray is unsorted.</li>
+</ul>
+<p>With every iteration of selection sort, an element is picked from the unsorted subarray and moved to the sorted subarray.</p>
+<p>For example:</p>
+<p>We start with an unsorted list, and [<em>] select the smallest value in the list. We then place this value first in the list and swap it with the value that was originally there.<br>
+Now, [</em>] the number 1 is in the correct position, so it needs no further consideration.<br>
+Next, [<em>] we select the smallest value in the remaining list, which is 2, and swap it with the value currently in the second position.<br>
+Now, [</em>] the number 2 is in the correct position and no longer needs to be considered.<br>
+Next, [<em>] we select the smallest number in the remaining list, which is 4, and swap it with the value currently in the third position.<br>
+Now, [</em>] 4 is in the correct position and no longer needs to be considered.<br>
+Next, [*] we select the smallest value in the remaining list, which in this case is 5, and since it’s already in the correct position no swap is necessary.</p>
+<pre><code>public  static  void  selectionSort(int[]  arr)
+
+{
+
+// run (arr.length - 1) times
+
+for  (int  i  =  0;  i  &lt;  arr.length  -  1;  i++)
+
+{
+
+// find the minimum element in the unsorted sub-array[i..n-1]
+
+// and swap it with arr[i]
+
+int  min  =  i;
+
+for  (int  j  =  i  +  1;  j  &lt;  arr.length;  j++)
+
+{
+
+// if arr[j] element is less, then it is the new minimum
+
+if  (arr[j]  &lt;  arr[min])  {
+
+min  =  j;  // update index of min element
+
+}
+
+}
+
+// swap the minimum element in sub-array[i..n-1] with arr[i]
+
+swap(arr,  min,  i);
+
+}
+
+}
+</code></pre>
+<p><strong>Accomplishing the Selection Sort Recursively</strong></p>
+<pre><code>// Recursive function to perform selection sort on sub-array arr[i..n-1]
+
+public  static  void  selectionSort(int[]  arr,  int  i,  int  n)
+
+{
+
+// find the minimum element in the unsorted sub-array[i..n-1]
+
+// and swap it with arr[i]
+
+int  min  =  i;
+
+for  (int  j  =  i  +  1;  j  &lt;  n;  j++)
+
+{
+
+// if arr[j] element is less, then it is the new minimum
+
+if  (arr[j]  &lt;  arr[min])  {
+
+min  =  j;  // update index of min element
+
+}
+
+}
+
+// swap the minimum element in sub-array[i..n-1] with arr[i]
+
+swap(arr,  min,  i);
+
+if  (i  +  1  &lt;  n)  {
+
+selectionSort(arr,  i  +  1,  n);
+
+}
+
+}
+</code></pre>
+<p><strong>The Insertion Sort Algorithm- O(n^2) Complexity</strong><br>
+The insertion sort algorithm sorts a list by repeatedly inserting a new element into a sorted sublist until the entire list is sorted.</p>
+<p>Let’s visually walk through the insertion sort for this array of integers.<br>
+Intially, we use the first value in the array as the first value in the sorted sublist.<br>
+Then, as a first step, we take the second number on the list, [<em>] in this case the number 9, and insert it in ascending order into the existing sublist.<br>
+[</em>].The sorted sublist is now 2 and 9.<br>
+Next, [<em>] we take the number 5 and insert it into the sublist in ascending order.<br>
+The sorted sublist is now 2, 5, 9.<br>
+As our third step, [</em>] we insert 4 into the sorted sublist.<br>
+[<em>] The sorted sublist is now 2, 4, 5, 9.<br>
+Next, [</em>] we insert 8 into the sorted sublist.</p>
+<pre class=" language-java"><code class="prism  language-java"><span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">insertionSort</span><span class="token punctuation">(</span><span class="token keyword">int</span> array<span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> j <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span> j <span class="token operator">&lt;</span> array<span class="token punctuation">.</span>length<span class="token punctuation">;</span> j<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">int</span> current <span class="token operator">=</span> array<span class="token punctuation">[</span>j<span class="token punctuation">]</span><span class="token punctuation">;</span>
+        <span class="token keyword">int</span> i <span class="token operator">=</span> j<span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">;</span>
+        <span class="token keyword">while</span> <span class="token punctuation">(</span><span class="token punctuation">(</span>i <span class="token operator">&gt;</span> <span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">)</span> <span class="token operator">&amp;&amp;</span> <span class="token punctuation">(</span>array<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">&gt;</span> current<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            array<span class="token punctuation">[</span>i<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">]</span> <span class="token operator">=</span> array<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">;</span>
+            i<span class="token operator">--</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+        array<span class="token punctuation">[</span>i<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">]</span> <span class="token operator">=</span> current<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+</code></pre>
+<p><strong>Accomplishing the Insertion Sort Recursively</strong></p>
+<pre><code>public static int[] InsertionSort(int[] array, int n) 
+{
+    int i;
+    if (n &lt; 1) {
+        InsertionSort(array, n - 1);
+    } 
+    else {
+
+        int key = array[n];
+        i = n - 1;
+
+        while (i &gt;= 0 &amp;&amp; array[i] &gt; key) {
+            array[i + 1] = array[i];
+            i = i - 1;
+        }
+
+        array[i + 1] = key;
+    }
+
+    return array;
+}
+</code></pre>
+</div>
+</body>
+
+</html>

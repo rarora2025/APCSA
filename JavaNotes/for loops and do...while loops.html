@@ -1,0 +1,50 @@
+﻿<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>for loops and do...while loops</title>
+  <link rel="stylesheet" href="https://stackedit.io/style.css" />
+</head>
+
+<body class="stackedit">
+  <div class="stackedit__html"><h2 id="for-loops">For Loops</h2>
+<h3 id="syntax">Syntax</h3>
+<pre class=" language-java"><code class="prism  language-java"><span class="token keyword">for</span> <span class="token punctuation">(</span>statement <span class="token number">1</span><span class="token punctuation">;</span> statement <span class="token number">2</span><span class="token punctuation">;</span> statement <span class="token number">3</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token comment">// code block to be executed</span>
+ <span class="token punctuation">}</span>
+
+</code></pre>
+<p><strong>Statement 1</strong>  is executed (one time) before the execution of the code block.</p>
+<p><strong>Statement 2</strong>  defines the condition for executing the code block.</p>
+<p><strong>Statement 3</strong>  is executed (every time) after the code block has been executed.</p>
+<p>The example below will print the numbers 0 to 4:</p>
+<h3 id="example">Example</h3>
+<pre class=" language-java"><code class="prism  language-java"><span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> <span class="token number">5</span><span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>i<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<p>UML Activity Diagram for the <code>for</code> statement:</p>
+<ul>
+<li>Similar to the <code>while</code> loop</li>
+</ul>
+<p><img src="https://www.oreilly.com/library/view/javatm-how-to/9780133813036/graphics/05fig08.jpg" alt="UML Activity Diagram for the do...while Repetition Statement ..."></p>
+<h2 id="do-while-loops">Do-While Loops</h2>
+<ul>
+<li>similar to a <code>while</code> statement, but a while tests its loop-continuation condition at the beginning of the loop, whereas the do…while statement tests its loop-continuation after executing the loop’s body; therefore, the body always executes at least once</li>
+</ul>
+<h3 id="example-1">Example</h3>
+<pre><code>do{
+  System.out.println(i);
+  i++;
+  } while(i&lt;=10);
+</code></pre>
+<p><strong>The UML Diagram for a Do…While</strong></p>
+<ul>
+<li>basically the same thing as a while except the check transition arrow comes after the body</li>
+</ul>
+</div>
+</body>
+
+</html>

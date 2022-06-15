@@ -1,0 +1,78 @@
+﻿<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Methods (Easy)</title>
+  <link rel="stylesheet" href="https://stackedit.io/style.css" />
+</head>
+
+<body class="stackedit">
+  <div class="stackedit__html"><h2 id="java-methods">Java Methods</h2>
+<p>A  <strong>method</strong>  is a block of code which only runs when it is called.</p>
+<p>You can pass data, known as parameters, into a method.</p>
+<p>Methods are used to perform certain actions, and they are also known as  <strong>functions</strong>.</p>
+<p>Why use methods? To reuse code: define the code once, and use it many times.</p>
+<hr>
+<h2 id="create-a-method">Create a Method</h2>
+<p>A method must be declared within a class. It is defined with the name of the method, followed by parentheses  <strong>()</strong>. Java provides some pre-defined methods, such as  <code>System.out.println()</code>, but you can also create your own methods to perform certain actions:</p>
+<h3 id="example">Example</h3>
+<p>Create a method inside MyClass:</p>
+<pre class=" language-java"><code class="prism  language-java"><span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">MyClass</span> <span class="token punctuation">{</span>
+  <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">myMethod</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token comment">// code to be executed</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+</code></pre>
+<h4 id="example-explained">Example Explained</h4>
+<ul>
+<li><code>myMethod()</code>  is the name of the method</li>
+<li><code>static</code>  means that the method belongs to the MyClass class and not an object of the MyClass class. You will learn more about objects and how to access methods through objects later in this tutorial.</li>
+<li><code>void</code>  means that this method does not have a return value. You will learn more about return values later in this chapter</li>
+</ul>
+<hr>
+<h2 id="call-a-method">Call a Method</h2>
+<p>To call a method in Java, write the method’s name followed by two parentheses  <strong>()</strong>  and a semicolon**;**</p>
+<p>In the following example,  <code>myMethod()</code>  is used to print a text (the action), when it is called:</p>
+<h3 id="example-1">Example</h3>
+<p>Inside  <code>main</code>, call the  <code>myMethod()</code>  method:</p>
+<pre class=" language-java"><code class="prism  language-java"><span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">MyClass</span> <span class="token punctuation">{</span>
+  <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">myMethod</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"I just got executed!"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+
+  <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">main</span><span class="token punctuation">(</span>String<span class="token punctuation">[</span><span class="token punctuation">]</span> args<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token function">myMethod</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+<span class="token comment">// Outputs "I just got executed!"</span>
+
+</code></pre>
+<p><a href="https://www.w3schools.com/java/showjava.asp?filename=demo_method">Run example »</a></p>
+<p>A method can also be called multiple times:</p>
+<h3 id="example-2">Example</h3>
+<pre class=" language-java"><code class="prism  language-java"><span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">MyClass</span> <span class="token punctuation">{</span>
+  <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">myMethod</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"I just got executed!"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+
+  <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">main</span><span class="token punctuation">(</span>String<span class="token punctuation">[</span><span class="token punctuation">]</span> args<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token function">myMethod</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token function">myMethod</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token function">myMethod</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+<span class="token comment">// I just got executed!</span>
+<span class="token comment">// I just got executed!</span>
+<span class="token comment">// I just got executed!</span>
+
+</code></pre>
+<p><a href="https://www.w3schools.com/java/showjava.asp?filename=demo_method_multiple">Run example »</a></p>
+</div>
+</body>
+
+</html>

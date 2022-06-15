@@ -1,0 +1,53 @@
+﻿<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>static Methods and static Fields</title>
+  <link rel="stylesheet" href="https://stackedit.io/style.css" />
+</head>
+
+<body class="stackedit">
+  <div class="stackedit__html"><h2 id="static-methods-and-static-fields">static Methods and static Fields</h2>
+<ul>
+<li>a class may contain static methods to perform common tasks that do not require an object of the class.</li>
+<li>Any data a static method might require to perform its tasks can be sent to the method as arguments in a method call.</li>
+<li>A static method/class method is called by specifying the name of the class in which the method is declared followed by a dot and the method name</li>
+</ul>
+<h2 id="create-a-method">Create a Method</h2>
+<p>A method must be declared within a class. It is defined with the name of the method, followed by parentheses  <strong>()</strong>. Java provides some pre-defined methods, such as  <code>System.out.println()</code>, but you can also create your own methods to perform certain actions:</p>
+<h3 id="example">Example</h3>
+<p>Create a method inside MyClass:</p>
+<pre class=" language-java"><code class="prism  language-java"><span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">MyClass</span> <span class="token punctuation">{</span>
+  <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">myMethod</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token comment">// code to be executed</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+</code></pre>
+<h4 id="example-explained">Example Explained</h4>
+<ul>
+<li><code>myMethod()</code>  is the name of the method</li>
+<li><code>static</code>  means that the method belongs to the MyClass class and not an object of the MyClass class. You will learn more about objects and how to access methods through objects later in this tutorial.</li>
+<li><code>void</code>  means that this method does not have a return value. You will learn more about return values later in this chapter</li>
+</ul>
+<h2 id="ways-to-call-a-method">3 Ways to Call a Method</h2>
+<ol>
+<li>
+<p>use method name by itself (within the class)<br>
+ex: <code>getIceCream();</code> – <em>static method</em></p>
+</li>
+<li>
+<p>use variable- (object) name<br>
+ex: <code>Truck ic = new Truck(); ic.getIceCream();</code></p>
+</li>
+<li>
+<p>use class name<br>
+ex: <code>Truck.getIceCream();</code> – <em>static method</em></p>
+</li>
+</ol>
+</div>
+</body>
+
+</html>

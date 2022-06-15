@@ -1,0 +1,26 @@
+﻿<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Primitive Types vs Reference Types</title>
+  <link rel="stylesheet" href="https://stackedit.io/style.css" />
+</head>
+
+<body class="stackedit">
+  <div class="stackedit__html"><h2 id="primitive-vs-reference">Primitive vs Reference</h2>
+<p>Java’s types are divided into primitive types and  <strong>reference types</strong> The primitive types are int, boolean,  byte,  char,  short,  long,  float  and  double. All nonprimitive types are  <em>reference types</em>, so classes, which specify the types of objects, are reference types.</p>
+<p>A primitive-type variable can hold exactly  <em>one</em>  value of its declared type at a time. For example, an  int  variable can store one integer at a time. When another value is assigned to that variable, the new value replaces the previous one—which is  <em>lost</em>.</p>
+<p>Recall that local variables are  <em>not</em>  initialized by default. Primitive-type instance variables  <em>are</em>  initialized by default—instance variables of types  byte,  char,  short,  int,  long,  float  and  double  are initialized to 0, and variables of type  boolean  are initialized to  false. You can specify your own initial value for a primitive-type variable by assigning the variable a value in its declaration, as in</p>
+<p><code>private int numberOfStudents = 10;</code></p>
+<p>Programs use variables of reference types (normally called  <strong>references</strong>) to store the  <em>locations</em>  of objects. Such a variable is said to  <strong>refer to an object</strong>  in the program.  <em>Objects</em>  that are referenced may each contain  <em>many</em>  instance variables. Line 8 of Fig. 3.2:</p>
+<p>Scanner input = new Scanner(<a href="http://System.in">System.in</a>);</p>
+<p>creates an object of class  Scanner, then assigns to the variable  input  a  <em>reference</em>  to that  Scanner  object. Line 11 of Fig. 3.2:</p>
+<p>Account myAccount = new Account();</p>
+<p>creates an object of class  Account, then assigns to the variable  myAccount  a  <em>reference</em>  to that  Account  object.  <em>Reference-type instance variables, if not explicitly initialized, are initialized by default to the value</em>  <em>null</em>—which represents a “reference to nothing.” That’s why the first call to  getName  in line 14 of Fig. 3.2 returns  null—the value of  name  has  <em>not</em>  yet been set, so the  <em>default</em>  <em>initial value</em>  null  is returned.</p>
+<p>To call methods on an object, you need a reference to the object. In Fig. 3.2, the statements in method  main  use the variable  myAccount  to call methods  getName  (lines 14 and 24) and  setName  (line 19) to interact with the  Account  object. Primitive-type variables do  <em>not</em>  refer to objects, so such variables  <em>cannot</em>  be used to call methods.</p>
+</div>
+</body>
+
+</html>

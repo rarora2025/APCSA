@@ -1,0 +1,234 @@
+﻿<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Working with GUI components</title>
+  <link rel="stylesheet" href="https://stackedit.io/style.css" />
+</head>
+
+<body class="stackedit">
+  <div class="stackedit__html"><h2 id="setting-up-gui-components">Setting up GUI components</h2>
+<p>Prerequisites- DOWNLOADING JavaFX (WATCH THIS VIDEO: <a href="https://www.youtube.com/watch?v=_7OM-cMYWbQ">https://www.youtube.com/watch?v=_7OM-cMYWbQ</a>)</p>
+<ol>
+<li>
+<p>Download the JavaFX SDK, found here: <a href="https://gluonhq.com/products/javafx/">https://gluonhq.com/products/javafx/</a></p>
+</li>
+<li>
+<p>Get the JavaFX SDK set up on your terminal</p>
+</li>
+</ol>
+<ul>
+<li>Open <em>~/.bash_profile</em> in terminal</li>
+<li>Add <em>export PATH_TO_FX=$(/usr/libexec/path_to_fx)</em> to the file, where <em>path_to_fx</em> is the pathname to the JavaFX SDK “lib” directory</li>
+<li>Save and close the file</li>
+<li>Open a Terminal window and type <em>source ~/.bash_profile</em> to apply the changes</li>
+</ul>
+<p>SETTING UP ECLIPSE:</p>
+<ol start="3">
+<li>Install JavaFX plugin:</li>
+</ol>
+<p>Go to Eclipse Marketplace, install E(fx)clipse</p>
+<ol start="4">
+<li>Create your first (setup) Java FX Project</li>
+</ol>
+<ul>
+<li>Create a user library and add jars from the sdk file downloaded. (Create the library by going `Eclipse-Preferences-Java-BuildPath-UserLibraries) click ‘new’ and ‘add external jars’</li>
+</ul>
+<p>EVERY SINGLE TIME YOU MAKE.A PROJECT:</p>
+<ol start="5">
+<li>Right click on your project before running- run configurations-arguments and then paste in<br>
+<code>--module-path /Users/cty_java/Desktop/javafx-sdk-15.0.1/lib --add-modules javafx.controls,javafx.fxml</code></li>
+</ol>
+<p>–replace /Users/cty_java/Desktop/javafx-sdk-15.0.1/lib, with correct path if not working</p>
+<ol start="6">
+<li>Configure Build Path- right click on project, Build Path, configure build path. Then click libraries at the top, classpath and add the java fx user library.</li>
+</ol>
+<h2 id="gui-101">GUI 101</h2>
+<p><strong>Stage</strong>- a container for things called scenes.</p>
+<p><strong>Scene</strong>- is a container for things that make up the scene (nodes)…like buttons, check boxes, and other controls.</p>
+<p>All Java FX applications must have at least one stage and one scene. Java FX applications have automatic access to a stage called the primary stage. It is automatically provided by the runtime system when an FX application is started. For many applications, this will be the only stage required.</p>
+<p>Technically, the elements that make up a scene are called <strong>nodes</strong>. For example, if there are two buttons in a scene, each would be a node. Nodes can have child nodes…so the collection of nodes in a scene creates what is called a scene graph, which is essentially a tree structure. There’s a special node in the scene graph called <strong>the root node</strong>…because it doesn’t have a parent. All other nodes are descendants of the root node. As you will see shortly, it’s pretty common to pass a root node object to a layout manager when we set up our GUI.</p>
+<p>There are three methods that must be in every GUI program- start, stop and init. Start is where the action is and takes in a stage object. init is where stuff is defined- runned before start. stop is where the clean up happens.</p>
+<p><em><strong>Setting up a window:</strong></em></p>
+<p>Since start is an abstract method, it must always be implemented in a GUI class, inheriting from Application.</p>
+<p>To set up the window in start, there are a few things you always must do.</p>
+<ol>
+<li>you must create a root node for the scene. Without a root node, you can’t have a scene because no nodes can be created. Normally the root node is of type FlowPane or BorderBane- it is defined like so:</li>
+</ol>
+<p><code>BorderPane root = new BorderPane();</code> or<br>
+<code>FlowPane root = new FlowPane();</code></p>
+<p>*Note: if the IDE gives you trouble, just let it import whatever it wants</p>
+<ol start="2">
+<li>you must create a scene for the stage using the root node. This can be done like so<br>
+<code>Scene scene = new Scene(root,400,400);</code></li>
+</ol>
+<p>where root is the root node and 400,400 are the dimensions of the window</p>
+<ol start="3">
+<li>
+<p>you must assign the scene to the stage passed in the start method. For example:<br>
+<code>primaryStage.setScene(scene);</code></p>
+</li>
+<li>
+<p>you must show the stage passed in by the start method like so:<br>
+<code>primaryStage.show();</code></p>
+</li>
+</ol>
+<p>–You also need to call the start/launch method in the main method, when you are working in an ide. For example:</p>
+<pre><code>public  static  void  main(String[]  args)  {
+launch(args);
+}
+</code></pre>
+<ol start="5">
+<li>Customizing: you can customize and style the way your scene looks. For example:</li>
+</ol>
+<p><code>scene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());</code></p>
+<p>You can also name things, for example, you can title your stage my running the method <code>setTitle()</code> on the stage passed:</p>
+<p><code>primaryStage.setTitle("My stage title");</code></p>
+<h2 id="creating-nodes">Creating Nodes</h2>
+<h3 id="labels">Labels</h3>
+<p>Import<br>
+<code>import javafx.scene.control</code></p>
+<p>Create the label<br>
+<code>Label label = new Label("Label text");</code></p>
+<p>Add label to root node<br>
+<code>root.getChildren().add(label)</code></p>
+<h3 id="textfields">Textfields</h3>
+<p>Import<br>
+<code>import javafx.scene.control</code></p>
+<p>Create the textfield<br>
+<code>TextField textfield = new TextField("default value");</code></p>
+<p>Add field to root node<br>
+<code>root.getChildren().add(textfield)</code></p>
+<p>Setting text(s)</p>
+<ul>
+<li>
+<p>you can set the text by calling the setText(“desired text”) method on the TextField.</p>
+</li>
+<li>
+<p>you can set the prompt text either by declaring it in the constructor, or by calling the setPromptText(“desired prompt text”) method on the TextField.</p>
+</li>
+</ul>
+<p>Making textFields uneditable</p>
+<ul>
+<li>call the method <code>setEditable()</code> and pass in the desired bool. If you want the textfield to be uneditable call <code>setEditable(false)</code> on the textfield</li>
+</ul>
+<h3 id="buttons">Buttons</h3>
+<p>Import<br>
+<code>import javafx.scene.control</code></p>
+<p>Create the button<br>
+Button button = new Button(“button name”);`</p>
+<p>Add button to root node<br>
+<code>root.getChildren().add(button)</code></p>
+<p>–Note: Centering all Stuff:<br>
+call <code>root.setAllignment(Pos.CENTER)</code></p>
+<p>How to align buttons<br>
+call <code>Hallignment()</code> on the root, with arguments- button and Hpos.RIGHT or whatever allignment you want</p>
+<p><strong>Toggle Buttons</strong><br>
+Import<br>
+<code>import javafx.geometry</code></p>
+<p>Create the button<br>
+ToggleButton togbutton = new ToggleButton(“On/Off”);`</p>
+<p>Add togglebutton to root node<br>
+<code>root.getChildren().add(togbutton)</code></p>
+<h3 id="layout-managers--types-of-rootnode">Layout Managers- types of rootNode</h3>
+<ol>
+<li>FlowPane:<br>
+arranges controls row-by-row horizontally, or column-by-column vertically. The default is horizontal, but to change it to vertical, call “Orientation.VERTICAL” in the constructor of flowpane</li>
+</ol>
+<ul>
+<li>to pass gaps (line spacing) add argument to the constructor of flow pane- you can also call the methods <code>setVgap</code> and <code>setHgap</code> on the root node instead</li>
+</ul>
+<p>Creating Padding:<br>
+call setPadding on the flow pane object (your root node) and pass in a <code>new Inset()</code> object whose parameters are the padding parameters</p>
+<ol start="2">
+<li>GridPane:<br>
+arranges controls in a grid/graph formation. Controls are placed on the grid using specific column and row indices. Its like a graph, but only quadrant IIII, and all negative y Vals are positive. as you move right the x gets larger and as you move down it also gets larger.</li>
+</ol>
+<p><img src="https://www.vojtechruzicka.com/static/29bc2592e616cc112f5ec510b36617aa/8c557/grid-pane.png" alt="enter image description here"></p>
+<p>When you are adding nodes to the grid pane, call add directly on the root pane object, with the object you want to add and the coordinate you want it.</p>
+<p>For example:</p>
+<p><code>root.add(label, 0, 0)</code></p>
+<p><strong>Setting Allignment</strong></p>
+<p>To set allignment of the entire root node, call setAllignment(Pos.CENTER) or whatever allignment you want on the root node.</p>
+<ol start="3">
+<li>BorderPane</li>
+</ol>
+<p>There are 5 regions: top, left, right, bottom, and center. Set whatever you want in those regions by calling <code>setLeft(object)</code> for example.</p>
+<h3 id="how-java-fx-events-work">How Java FX Events Work</h3>
+<p><strong>Event-Driven Programming:</strong><br>
+When you write programs that contain graphical user interfaces, the programs are controlled according to what a user does when he or she interacts with the interface controls. This type of programming is called event-driven programming.</p>
+<p><strong>Events:</strong><br>
+signals that gets sent to your program by the operating system when something happens. For our purposes, events will occur when a user does something…like click on a button or enter something into a text field.</p>
+<p><strong>Event Sources:</strong><br>
+An object that generates events, like a button</p>
+<p><strong>Event Objects:</strong><br>
+objects that contain important information about the event. created when an event occurs. sent to event listeners…</p>
+<p><strong>Event Listeners</strong><br>
+The Listeners/receivers of event objects that contains important information about the event<br>
+Event listeners respond to the event occurrence by taking some action. Listener objects are called event handlers…they contain code that will respond to an event.</p>
+<p>Every class that can generate an event has one or more methods that allow you to REGISTER event listeners for the events that can be generated by objects of that class. By registering as an event listener, an object is automatically notified when an event has been generated by such an object.</p>
+<p><strong>WHEN AN EVENT OCCURS… (AN EVENT IS GENERATED BY AN EVENT SOURCE)</strong></p>
+<p><strong>Event Source -&gt; Even Object is Created and Sent -&gt; Event Listener Object</strong></p>
+<h3 id="handling-events">Handling Events</h3>
+<p>We must do 2 things:</p>
+<ol>
+<li>we must define event handler objects to respond to the events.</li>
+<li>we must register the event handler object to listen for events generated from the event source.</li>
+</ol>
+<p>To create a button handler object we must create a class for it to be an object of. This class should include how it handles receives certain events/event objects.</p>
+<p>The ButtonHandler class you create should be an innerClass (inside of another class) so it can access all members of its outclass.<br>
+In addition, it should implement 	<code>EventHandler&lt;ActionEvent&gt;</code><br>
+The ButtonHandler class should contain public void method <code>handle</code> which takes in <code>ActionEvent e</code> and handles it</p>
+<p>To register/connect an event handler to an event source, call the method <code>setOnAction()</code> on the event source, and pass in the event handler object as an argument. For example:</p>
+<p><code>Button.setOnAction(new EventHandler());</code></p>
+<p><strong>Working with Radio Buttons and handling their events</strong></p>
+<p>Radio Buttons are like multiple choice buttons, you create them like so:</p>
+<p><code>RadioButton rb = new RadioButton("Option A")</code></p>
+<p>If you only want to to be highlighted at once, add them to a Toggle Group</p>
+<p>create a toggle group<br>
+<code>ToggleGroup tg = new ToggleGroup()</code></p>
+<p>add the button to a toggle group<br>
+<code>rb.setToggleGroup(tg)</code></p>
+<p>finally add it to the root node, so it will be displayed.</p>
+<p><em><strong>For each individual button, create an individual event listener and add that to its set on action.</strong></em></p>
+<p><strong>Working with check Buttons and handling their events</strong></p>
+<p><code>CheckBox</code> act similarly but they don’t need to be put in a toggle group since they can be selected at the same time</p>
+<p>You can access whether or not a checkbox is selected at a certain point by calling <code>checkbox.isSelected()</code></p>
+<p><strong>Working with ListViews and handling their events</strong></p>
+<p>create a list view</p>
+<p><code>ListView&lt;String&gt; myListView = new ListView&lt;String&gt;(choices)</code></p>
+<p>add choices<br>
+<code>ObservableList&lt;String&gt; choices = FXCollections.observeArrayList("Choice1", "Choice2", "Choice3");</code></p>
+<p>set selection mode</p>
+<p><code>myListView.getSelectionMode().setSelectionMode(SelectionMode.SINGLE);</code></p>
+<p>Handling actions of ListView</p>
+<p>adding listener<br>
+<code>MultipleSelectionModel&lt;String&gt; selectionMod = myListView.getSelectionMode();</code></p>
+<p><code>selectionMod.selectedItemProperty().addListener(New ListViewHandler());</code></p>
+<p>creating listener class</p>
+<pre><code>class ListViewHander implements ChangeListener&lt;String&gt;{
+
+	public void changed(ObservableValue&lt;? extends String&gt; change, String oldVal, String newVal){
+//new val holds newly selected "choice"
+	}
+}
+</code></pre>
+<p><strong>Working with ComboBoxes (Drop-Downs) and handling their events</strong></p>
+<p>creating choices<br>
+<code>ObservableList&lt;String&gt; choices = FXCollections.observeArrayList("Choice1", "Choice2", "Choice3");</code></p>
+<p>creating combo box<br>
+<code>ComboBox&lt;String&gt; myComboBox = new ComboBox&lt;String&gt;(choices)</code></p>
+<p>setting a default value<br>
+<code>myComboxBox.setValue("Choice1")</code></p>
+<p><strong>Handling ComboBoxes</strong><br>
+the same as button/check box events</p>
+<p>To Register:<br>
+<code>myComboBox.setOnAction(new ComboHandler());</code></p>
+<p>The ComboHandler class you create should implement 	<code>EventHandler&lt;ActionEvent&gt;</code><br>
+The ButtonHandler class should contain public void method <code>handle</code> which takes in <code>ActionEvent e</code> and handles it</p>
+</div>
+</body>
+
+</html>

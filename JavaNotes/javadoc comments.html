@@ -1,0 +1,45 @@
+﻿<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>javadoc comments</title>
+  <link rel="stylesheet" href="https://stackedit.io/style.css" />
+</head>
+
+<body class="stackedit">
+  <div class="stackedit__html"><h2 id="javadoc">Javadoc</h2>
+<p>—a tool used to create HTML files that document Java code.</p>
+<ul>
+<li>
+<p>Before HTML files can be generated with the javadoc tool, programmers must insert special comments—called documentation comments—into their source files. Documentation comments are the only comments recognized by javadoc.</p>
+</li>
+<li>
+<p>Documentation comments begin with /** and end with */. Like traditional comments, documentation comments can span multiple lines.</p>
+</li>
+<li>
+<p>Like other comments, documentation comments are not translated into bytecodes. Because javadoc is used to create HTML files, documentation comments can contain HTML tags. For example, the documentation comment</p>
+<pre><code>/** Sorts integer array using 
+&lt;strong&gt;MySort&lt;/strong&gt; algorithm */
+</code></pre>
+</li>
+</ul>
+<p>contains the HTML bold tags <strong> and </strong>. In the generated HTML files, MySort will appear in bold. As we’ll see, javadoc tags can also be inserted into the documentation comments to help javadoc document your source code. These tags—which begin with an @ symbol—are not HTML tags.</p>
+<p>[Note: The asterisks (*) on each line between /** and */ are not required. However, this is the recommended convention for aligning descriptions and javadoc tags]</p>
+<p><strong>Common Tags</strong>:</p>
+<p><strong>@see-</strong> used to specify a “see also” note/list<br>
+Use {<a href="https://github.com/link">@link</a>} for the content to be linked.</p>
+<p><strong>@author</strong> used to specify a person who made significant contribution to the code. Applied only at the class, package, or overview level. Not included in Javadoc output. It’s not recommended to include this tag since authorship changes often.</p>
+<p><strong>@param</strong> used to describe a parameter that the method or constructor accepts</p>
+<p><strong>@throws</strong> used to specify the exceptions thrown by this constructor</p>
+<p><strong>@return</strong> used to specify what a method returns</p>
+<p><strong>@since</strong> used to specify the version since the feature was added.</p>
+<p><strong>@version</strong>  adds a Version note. These notes help maintain version number of the software containing the class or method.</p>
+<p><strong>{@link}</strong>  allows the programmer to insert an explicit hyperlink to another HTML document.</p>
+<p><strong>@deprecated</strong>  adds a Deprecated note. These are notes to programmers indicating that they should not use the specified features of the class. Deprecated notes normally appear when a class has been enhanced with new and improved fea- tures, but older features are maintained for backwards compatibility.</p>
+<p>[**Note: A # character is used instead of a dot when tagging a method or a field. This creates a link to the field or method name that follows the # character.]</p>
+</div>
+</body>
+
+</html>

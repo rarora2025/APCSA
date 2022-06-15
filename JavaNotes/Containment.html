@@ -1,0 +1,44 @@
+﻿<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Containment</title>
+  <link rel="stylesheet" href="https://stackedit.io/style.css" />
+</head>
+
+<body class="stackedit">
+  <div class="stackedit__html"><h2 id="containment">Containment</h2>
+<p>the idea that an outer class contains an instance of another class and allows access to the contained object through its own method</p>
+<ul>
+<li>a “has-a” relationship, also part-whole</li>
+</ul>
+<p>When containment is used, the containing class must take responsibility for ensuring that the contained class constructors are properly invoked:</p>
+<p>For example, in the default constructors or in constructors in which certain attributes are not specified and are given default values, if any of the attributes are objects of a class, make sure to create new objects of a class (with appropriate arguments) in those constructors.</p>
+<p>UML- to represent containment, draw an arrow with the word “uses” on it, and make it pointing to the class whose object is being “contained”</p>
+<p>For example, if we have a person class that contains objects of class date, name, and age, then draw “uses” arrows from the person class to each of the class diagrams of name, date, and age.</p>
+<h3 id="aggregation">Aggregation</h3>
+<p>Indicated by a straight line with a clear diamond shape at the aggregating class in UML Symbols</p>
+<p>[the aggregating class is the class that is aggregating/containing the other ‘aggregated’ classes]</p>
+<p>Aggregating = whole<br>
+Aggregated = part</p>
+<ul>
+<li>a type of containment</li>
+<li>In aggregation, the contained object can exist independently from the outer object</li>
+<li>an aggregated object is not created within the “container” class, but instead it is created outside and then later assigned to a reference class (until it is assigned, its default value may be null)</li>
+</ul>
+<p>Example: a Family object might contain an instance of a Dog object, representing a dog that the family owns.</p>
+<h3 id="composition">Composition</h3>
+<p>Indicated by a straight line with a darkened diamond shape at the aggregating class in UML Symbols</p>
+<ul>
+<li>a type of containment</li>
+<li>just a stronger form of aggregation</li>
+<li>In composition, the contained object is created and exists entirely within the object that contains it: It ceases to exist when the containing object is destroyed.</li>
+<li>also known as a “part-of” relationship</li>
+</ul>
+<p>Example: water and pond: water is A PART OF a pond</p>
+</div>
+</body>
+
+</html>

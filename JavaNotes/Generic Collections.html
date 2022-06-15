@@ -1,0 +1,190 @@
+﻿<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Generic Collections</title>
+  <link rel="stylesheet" href="https://stackedit.io/style.css" />
+</head>
+
+<body class="stackedit">
+  <div class="stackedit__html"><h2 id="generic-collections">Generic Collections</h2>
+<p>The Java <strong>collections framework</strong> contains many rebuild generic data-structure</p>
+<p>Collection</p>
+<ul>
+<li>a data structure</li>
+<li>an object that can hold references to other objects, usually those that have inheritance with its class</li>
+</ul>
+<p>Collections-framework interfaces:</p>
+<ul>
+<li>members of package 	<code>java.util</code></li>
+</ul>
+
+<table>
+<thead>
+<tr>
+<th>Interface</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Collection</td>
+<td>The root interface in the collections hierarchy from which interfaces <code>Set</code>, <code>Queue</code>, and <code>List</code> are derived</td>
+</tr>
+<tr>
+<td>Set</td>
+<td>A collection that doesn’t contain duplicates</td>
+</tr>
+<tr>
+<td>List</td>
+<td>An ordered collection that can contain duplicates</td>
+</tr>
+<tr>
+<td>Map</td>
+<td>A collection that associates keys to values and cannot contain duplicate keys, doesn’t derive from Collection</td>
+</tr>
+<tr>
+<td>Queue</td>
+<td>Typically a first in, first out collection that models a waiting line; other orders can be specified</td>
+</tr>
+</tbody>
+</table><p><strong>Common Collection Classes</strong></p>
+
+<table>
+<thead>
+<tr>
+<th>Method</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>ArrayList</code></td>
+<td>works like an array but its size can easily be changed. Very efficient for inserting elements randomly, but not somewhere specific in the middle</td>
+</tr>
+<tr>
+<td><code>LinkedList</code></td>
+<td>Similar to <code>ArrayList</code> but with more features. Very efficient for inserting elements somewhere specific, but not at accessing random elements</td>
+</tr>
+<tr>
+<td><code>HashSet</code></td>
+<td>A collection that stores a unique set of objects based on something called a <em>hash code</em></td>
+</tr>
+<tr>
+<td><code>HashMap</code></td>
+<td>Stores objects having unique key-value pairs</td>
+</tr>
+<tr>
+<td><code>TreeMap</code></td>
+<td>Stores objects having a key-value pairs in a special structure called a tree</td>
+</tr>
+</tbody>
+</table><p><strong>Generic Collections in Java</strong></p>
+<ul>
+<li>introduced in J2SE 5 to deal with type-safe objects.</li>
+<li>It makes the code stable by detecting the bugs at compile time.</li>
+</ul>
+<p>Before generics, we can store any type of objects in the collection, i.e., non-generic. Now generics force the java programmer to store a specific type of objects.</p>
+<h4 id="advantage-of-java-generics">Advantage of Java Generics</h4>
+<p>There are mainly 3 advantages of generics. They are as follows:</p>
+<ul>
+<li>
+<p><strong>Type-safety:</strong> We can hold only a single type of objects in generics. It doesn?t allow to store other objects.</p>
+</li>
+<li>
+<p><strong>Type casting is not required:</strong>  There is no need to typecast the object. Before Generics, we need to type cast.</p>
+</li>
+<li>
+<p><strong>Compile-Time Checking:</strong> It is checked at compile time so problem will not occur at runtime. The good programming strategy says it is far better to handle the problem at compile time than runtime.</p>
+</li>
+</ul>
+<h3 id="wrapper-classes">Wrapper Classes</h3>
+<p>A Wrapper class is a class whose object wraps or contains primitive data types. When we create an object to a wrapper class, it contains a field and in this field, we can store primitive data types. In other words, we can wrap a primitive value into a wrapper class object.</p>
+<ul>
+<li>Wrapper Classes are final: you cannot extend them</li>
+<li>Wrapper classes contain the methods associated with each primitive data type</li>
+</ul>
+<p><em>It provides a way to use primitive data types (<code>int</code>, <code>boolean</code>, etc…) as objects.</em></p>
+<p><strong>Need of Wrapper Classes</strong></p>
+<p>They convert primitive data types into objects. Objects are needed if we wish to modify the arguments passed into a method (because primitive types are passed by value).</p>
+
+<table>
+<thead>
+<tr>
+<th>Primitive Data Type</th>
+<th>Wrapper Class</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>byte</code></td>
+<td>Byte</td>
+</tr>
+<tr>
+<td><code>short</code></td>
+<td>Short</td>
+</tr>
+<tr>
+<td><code>int</code></td>
+<td>Integer</td>
+</tr>
+<tr>
+<td><code>long</code></td>
+<td>Long</td>
+</tr>
+<tr>
+<td><code>float</code></td>
+<td>Float</td>
+</tr>
+<tr>
+<td><code>double</code></td>
+<td>Double</td>
+</tr>
+<tr>
+<td><code>boolean</code></td>
+<td>Boolean</td>
+</tr>
+<tr>
+<td><code>char</code></td>
+<td>Character</td>
+</tr>
+</tbody>
+</table><p><em><strong>Methods for Integer Class</strong></em></p>
+
+<table>
+<thead>
+<tr>
+<th>Method</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>Integer(int a)</code>, 	<code>Integer(String a</code></td>
+<td>Constructors which can construct a string object from an <code>int</code> or <code>String</code>.</td>
+</tr>
+<tr>
+<td><code>int intValue()</code></td>
+<td>Returns the value of an <code>Integer</code> object as an <code>int</code> type</td>
+</tr>
+<tr>
+<td><code>static int parseInt(String s)</code></td>
+<td>Converts the <code>String</code> s and returns its integer value.</td>
+</tr>
+<tr>
+<td><code>static String toString(int n)</code></td>
+<td>Converts the given <code>int</code> to a String</td>
+</tr>
+</tbody>
+</table><h4 id="boxing-conversions">Boxing Conversions</h4>
+<ul>
+<li>converts a value between primitive-type values and type-wrapper objects</li>
+</ul>
+<p><strong>Autoboxing:</strong> Automatic conversion of primitive types to the object of their corresponding wrapper classes is known as autoboxing. For example – conversion of int to Integer, long to Long, double to Double etc.</p>
+<p><strong>Unboxing:</strong> It is just the reverse process of autoboxing. Automatically converting an object of a wrapper class to its corresponding primitive type is known as unboxing. For example – conversion of Integer to int, Long to long, Double to double, etc.</p>
+</div>
+</body>
+
+</html>

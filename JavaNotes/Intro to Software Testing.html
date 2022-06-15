@@ -1,0 +1,75 @@
+﻿<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Intro to Software Testing</title>
+  <link rel="stylesheet" href="https://stackedit.io/style.css" />
+</head>
+
+<body class="stackedit">
+  <div class="stackedit__html"><h2 id="lesson-introduction-to-class-methods">Lesson: Introduction to class methods</h2>
+<h3 id="discussion-software-testing-basics">Discussion: Software Testing Basics</h3>
+<p>At the beginning of this course you learned that there are three common types of errors that can be introduced into a program: syntax errors, logic errors, and runtime errors. Syntax errors occur when a program contains statements that don’t follow the Java language rules. An example would be a statement that doesn’t contain a required semi-colon. Syntax errors cause a program to not compile. Logic errors are errors in the code that cause it to produce an incorrect result. Examples of logic errors include using an incorrect formula in a calculation, allowing the use of an incorrect value to be used (e.g., a negative value for the side of a triangle). Runtime errors are errors that occur when a program executes and causes the program to terminate abnormally. An example of a runtime error would be a division statement in which the value of the divisor is zero.</p>
+<p>You are getting to a point in your AP Computer Science course where the programs you will be writing going forward will be increasingly complex. As a result, it will be important for you to adequately test your programs before submitting them to your instructor. The purpose of testing is two-fold:</p>
+<ol>
+<li>To find errors in a program so that they can be corrected and/or removed prior to submitting an assignment.</li>
+<li>To provide reasonable assurance that the program works correctly (i.e., it satisfies its requirements) for different sets of inputs.</li>
+</ol>
+<p>While the Java compiler can detect syntax errors, it cannot detect logic or runtime errors, so it is up to you as a programmer to do the best you can at detecting and fixing these latter two types of errors. So, how does one actually test a program? Typically, by running the program multiple times using different sets of input data each time. A given set of input data, with an associated statement about the expected program output resulting from using that data is called a <em>test case</em>.</p>
+<p>Let’s take a simple example of a test case. Suppose we have written a program that prompted the user to enter their name and their favorite color, and then displayed the following output:</p>
+<p>Hey NNNNN, your favorite color is CCCCC</p>
+<p>A sample test case for such a program might be as follows:</p>
+<p>Input Data: name = Joe, favorite color = blue<br>
+Expected Output: Hey Joe, your favorite color is blue</p>
+<p>For a simple program like this, a single test case may be sufficient.</p>
+<p>Let’s take another example. Suppose we wrote a program that prompted the user to enter the weight of a package, and then computed the postage cost to ship the package. Let’s assume that if the package weight is one pound or less the shipping cost is $2.50; if the package weight is more than one pound but not more than two pounds the shipping cost is $3.25; and if the package weight is more than two pounds the shipping cost is $5.00.</p>
+<p>Exercise: Take a minute or two and write down some test cases you might use to test this program.</p>
+<p>Suppose we wrote the following test cases to test this program:</p>
+<p>Input Data: weight = .5 Expected Output = $2.50<br>
+Input Data: weight = 7 Expected Output = $5.00</p>
+<p>Do you think these test cases would be adequate to verify that the program will always produce correct output? What would happen if a user entered a weight of 1.7 pounds? If the program is implemented correctly it should produce an output of $3.25…but unless we test it with that input value, we couldn’t be sure. Of course, if we could look at the code (assuming this is possible), we could walk that input value through the code mentally to help determine if a correct value would be produced. This is also a form of test case, and it is sometimes referred to as a <em>static</em> test case. The other examples we’ve used here are examples of <em>dynamic</em> test cases…they’re called dynamic because the code is actually executed by the computer using the test input data. A good testing strategy makes use of both static and dynamic test cases.</p>
+<p>Now, would the three test cases above be adequate? Maybe or maybe not. Will the program need to edit the user input data to ensure that negative values are not accepted? If so, more tests would be needed. In practice, it’s important to know the requirements for the program or method that is being tested.</p>
+<p>In computer science and software engineering, software testing is an extremely important process, and there are numerous techniques for systematically deriving test cases that adequately test programs. Having a complete discussion of testing methodology is way beyond the scope of our course. For purposes of our course, the goal will be for you to use enough test cases so that you are reasonably confident that your program does what it is supposed to do and doesn’t do what it’s not supposed to do. A few basic guidelines for writing test cases will follow.</p>
+<p>For purposes of this course, the number and types of test cases that will be used to test a program depend on several things. First, what assumptions will your program make about the input data that will be used? Will the input data need to be checked to see if it falls within known, pre-specified ranges? Documenting these assumptions before you actually write a program will be helpful in both implementing the program and determining how it will be tested. Second, what types of output will your program produce? In the above example on shipping costs, the program should produce three distinct outputs…so it makes sense to write enough test cases to verify that each of the outputs occurs at least once. That would give us adequate confidence that the program meets its requirements. And that (adequate evidence that the program meets its requirements) is one determinant of how many test cases to use. Some programs might be capable of producing an almost infinite number of outputs, and might be required to accept an almost infinite number of input values, so testing all input values and output values would be infeasible and we just have to come up with some reasonable number. A third factor in determining the number of tests will be what the code looks like. The more complicated the code, the more likely it is that more test cases will be required.</p>
+<p>Using Pre-Conditions to Document Assumptions</p>
+<p>One very useful programming practice that you should consider adopting is the use of pre-conditions. Pre-conditions can be associated with an entire program or with the methods of a program, and they are just statements that specify what a program or a method can assume to be true…and therefore will not be checked. Pre-conditions are stated using regular Java comments or using Javadoc comments. An example is illustrated below.</p>
+<p>// Method to calculate area of a rectangle<br>
+// pre-conditions: length and width are integers &gt; 0</p>
+<p>public static int calculateArea( int length, int width )<br>
+{<br>
+return length * width;<br>
+}</p>
+<p>In this example, the pre-conditions stated that the length and width parameters are integers greater than zero…so the method (and the programmer) can assume this is true. The code will focus on performing the calculation and doesn’t check whether integers are passed (the compiler will automatically verify this) and whether the parameter values are greater than zero. Pre-conditions are derived based on the requirements for a program or a method. Using pre-conditions are not only useful for testing, but for code documentation as well.</p>
+<p>Black Box Testing</p>
+<p>In all the examples that were used earlier, test cases were derived without having actual code…just the requirements that the code was supposed to satisfy. Developing test cases using just the requirements is called black box testing. The idea is that the code is a black box: we don’t look at it, and it might not even be written yet, so we write test cases based on what it is supposed to do. Some simple guidelines for writing black box tests for purposes of this class:</p>
+<ul>
+<li>If the code produces a finite set of outputs, write tests that verify each output occurs</li>
+<li>If the code requires a finite set of inputs, write tests that verify each input is accepted</li>
+<li>If the code requires an infinite number of inputs and/or produces an infinite number of outputs, write a sampling of tests that give you reasonable confidence</li>
+<li>If the inputs must be in a valid range of values or types, write tests for valid and invalid values, and possibly at the endpoints of the valid range</li>
+</ul>
+<p>White Box Testing</p>
+<p>White box testing assumes we have access to the code for a program, and it focuses on writing test cases based on the structure of the code. When we do white box testing, one of the goals is to write enough tests so that a certain amount of the code is exercised by those tests. These are called coverage criteria. Common coverage criteria used in industry are statement coverage, branch coverage, and path coverage. For our purposes, I’ll illustrate statement and branch coverage.</p>
+<p>Take a look at the following method. It gets passed three floating point variables when it’s called and returns a result. I just made up the code, and for our purposes it’s not important that it may not do anything meaningful because I just want to focus on illustrating statement coverage.</p>
+<p>// pre-conditions: none<br>
+public static float method( float A, float B, float X )<br>
+{</p>
+<p>if ( A&gt;1 &amp;&amp; B<mark>0 )<br>
+X = X/A;<br>
+if ( A</mark>2 || X&gt;1 )<br>
+X = X+1;<br>
+return X;<br>
+}</p>
+<p>Exercise: Take a minute and write a set of test cases for the above code. Then, continue reading the discussion.</p>
+<p>To achieve statement coverage, we need to write enough test cases so that each statement is executed at least once. To some minds it may sound reasonable that, yeah, if we write enough tests to exercise every statement that should be enough. In this example, statement coverage can be achieved with a single test case (A=2, B=0, X=3). Now, let’s think about the adequacy of statement coverage. It will be helpful to look at a flow chart for this method’s logic. In the flowchart below, an element for the return statement is not included because that statement will always be executed.</p>
+<p><img src="https://mycourses.cty.jhu.edu/pluginfile.php/1112248/mod_lesson/page_contents/315240/SampleFlowchart.PNG?time=1560542910733" alt="sample flow chart"></p>
+<p>The one test case that exercises all statements would exercise the execution path a-c-e. But, there’s a second possible execution path, a-b-d, and this would not be covered by our test. And…there are two complex conditional tests here. Suppose the comparison in the second test was supposed to be X=1 and not X&gt;1. That error would not be detected by our single test. So, as a coverage criteria, statement coverage may not be adequate since the risk of not detecting errors can be significant.</p>
+<p>The next higher coverage criteria is branch (or decision) coverage. For branch coverage, we need to write enough test cases so that each true/false decision branch is exercised at least once. In the above example, two test cases would do the job ( we’ll add a second test case A=1, B=1, X=1) and they would also exercise the two possible execution paths. So…branch coverage is usually more thorough than statement coverage. But is it enough to adequately reduce the risk of allowing errors to go undetected?</p>
+<p>Notice those compound conditionals. They could be evaluated as true or false in a number of different ways…so some errors could slip through undetected. If we wanted to reduce the risk even more, we could enumerate all the different combinations that can cause the decisions to be true and false and test them all. In practice, this can be a lot of work, but it may be necessary. In industry, organizations that are aware of the risks associated with testing typically set coverage criteria that makes sense and mitigates risk to an acceptable level.</p>
+<p>In summary, the purpose of this discussion is to provide a basic introduction to the necessity of adequately testing your programs and to understand that there are risks associated with testing. The more thoroughly you test your code, the higher the likelihood it will be correct.</p>
+</div>
+</body>
+
+</html>

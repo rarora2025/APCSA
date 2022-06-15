@@ -1,0 +1,43 @@
+﻿<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Polymorphism</title>
+  <link rel="stylesheet" href="https://stackedit.io/style.css" />
+</head>
+
+<body class="stackedit">
+  <div class="stackedit__html"><h2 id="polymorphism">Polymorphism</h2>
+<p>The ability to take on many shapes or forms</p>
+<ul>
+<li>A very powerful mechanism: allows an object of one type to be used as a reference to different types, and then leaves it up to the compiler to call the correct method for each different type of object.</li>
+<li>enables a method call to behave differently, depending upon the specific type of object it’s associated with: for example a dog would automatically bark when called to speak, whereas the cat would automatically meow when called to speak</li>
+</ul>
+<p><strong>Compile time Polymorphism</strong></p>
+<p>Compile time Polymorphism is also known as method overloading. Method overloading means having two or more methods with the same name but with different signatures.</p>
+<p><strong>Run time Polymorphism</strong></p>
+<p>Run time Polymorphism is also known as method overriding. Method overriding means having two or more methods with the same name and same signature, but with a different implementation (use the rules of method overriding)</p>
+<ul>
+<li>This kind of Polymorphism will only be seen in action when the method call is made <em>using a variable of the base class type</em>. Otherwise there is no polymorphic behavior to be done by the computer, since you have already defined which form you want the variable to take, and there is no overriding choice to be made during runtime.</li>
+</ul>
+<p>For example:</p>
+<pre><code>Animal animal = new Dog();
+//you will experience polymorphic behavior, because you have created a NEW ANIMAL, it will always be an animal, it just might get overriden (to be more specific) at runtime 
+</code></pre>
+<p>The reason it matters is because when you are defining an object of type animal, it will, during runtime be casted into a more specific object. If it has already been casted/defined when compiled, there will be no polymorphic behavior on display while the program is running.</p>
+<pre><code>Animal animal = new Dog();
+animal.speak() //it will bark like a dog now
+Animal animal = new Cat();
+animal.speak() //it will meow like a cat now
+</code></pre>
+<p>Because of this, you can only access direct overriden inherited methods on an object that has been casted during runtime. Direct as in methods that have been inherited from the original class to the casting class.</p>
+<p>For example, if we have three classes: Chihuahua which inherits from dog and dog which inherits from animal. If we cast from dog to chihuahua at runtime, we cannot try to access any overriden inherited methods other than the ones from animal. AKA we can’t access any override inherited methods from Chihuahua.</p>
+<pre><code>Animal animal = new Chihuahua();
+animal.bark() // will result in an error
+</code></pre>
+</div>
+</body>
+
+</html>

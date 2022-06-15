@@ -1,0 +1,173 @@
+﻿<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Searching Algorithms</title>
+  <link rel="stylesheet" href="https://stackedit.io/style.css" />
+</head>
+
+<body class="stackedit">
+  <div class="stackedit__html"><h2 id="searching-algorithms">Searching Algorithms</h2>
+<p>Searching for data involves determining whether a specific value (referred to as a search key) is present in the data, and, if so, finding its location. For example, we may want to find an array element that has a particular value.<br>
+Algorithms that search for data are called search algorithms or <strong>searching algorithms</strong>.</p>
+<hr>
+<h3 id="big-o-notation">Big O Notation</h3>
+<p>In computer science, we commonly use something called Big-O or Big-O notation when estimating the efficiency of algorithms. Big-O is concerned with how an algorithm’s run time grows in relation to the size of the problem being solved. Algorithms are put into one of a number of Big-O categories based upon their efficiency or runtime complexity.</p>
+<p><img src="https://nedbatchelder.com/text/bigo_pix/011.png" alt="enter image description here"></p>
+<p>This graph illustrates efficiency as a function of problem size using four common Big-O categories:</p>
+<p>the order of log n:</p>
+<ul>
+<li>as the problem size increases, as measured by the value of n, the runtime of the algorithm increases in proportion to the logarithm of n.</li>
+</ul>
+<p>the order n:</p>
+<ul>
+<li>efficiency grows linearly as the size of the problem increases.</li>
+</ul>
+<p>the order of n log n:</p>
+<ul>
+<li>efficiency increases at a rate of n times the logarithm of n.</li>
+</ul>
+<p>the order of n-squared”:</p>
+<ul>
+<li>also called quadratic run time.</li>
+</ul>
+<h3 id="different-searching-algorithms-and-their-big-o-complexity">Different Searching Algorithms and their Big O Complexity:</h3>
+<p><strong>The Linear Search</strong><br>
+The Linear search algorithm is used to search a key element from multiple elements by comparing each element in the array directly to the key element.</p>
+<p><em>Algorithm:</em></p>
+<ul>
+<li>Step 1: Pass the array</li>
+<li>Step 2: Match the key element with array element</li>
+<li>Step 3: If key element is found, return the index position of the array element</li>
+<li>Step 4: If key element is not found, return -1</li>
+</ul>
+<p>A simple approach is to do a  linear search:</p>
+<ul>
+<li>Start from the leftmost element of arr[] and one by one compare x with each element of arr[]</li>
+<li>If x matches with an element, return the index.</li>
+<li>If x doesn’t match with any of elements, return -1.</li>
+</ul>
+<p>For example:</p>
+<pre><code>int RLinearSearch(int A[], int key) {
+
+int n = A.length
+int c = -1
+
+for (int I = 0; I &lt; n; I++){
+	if (A[I] == key) {
+	c = I; 
+	} 
+
+return c;
+ 
+}
+
+}
+</code></pre>
+<p><img src="https://media.geeksforgeeks.org/wp-content/cdn-uploads/Linear-Search.png" alt="enter image description here"></p>
+<p><em>How to do the Linear Search Recursively:</em><br>
+Instead of using an iteration loop, just call the method on itself, starting with the last element in the array, and calling the second to last, and so forth…</p>
+<pre><code>
+//n = A.length
+int RLinearSearch(int A[], int n, int key) {
+    if(n&lt;0) { // Base case - not found
+        return -1;
+    }
+    if(A[n]==key) { // Base case - found
+        return n;
+    }
+    // Recursive case
+    return RLinearSearch(A, n-1, key);
+}
+</code></pre>
+<hr>
+<p><strong>The Binary Search</strong><br>
+The Binary Search Algorithm is used to search a key element from multiple elements using an array that is already ordered in ascending order, by comparing the  key  value with the middle element of the array; if they are unequal, the half in which the key cannot be part of is eliminated, and the search continues for the remaining half until it succeeds.</p>
+<p>How it’s done:</p>
+<ol>
+<li>
+<p>the key value is compared with the middle element of the array.</p>
+</li>
+<li>
+<p>If the key value is less than the value of the middle element, the search continues in the first half of the array.<br>
+If the key value matches the middle element value, the search ends.</p>
+</li>
+<li>
+<p>If the key value is greater than the middle element value, the search continues in the second half of the array.</p>
+</li>
+</ol>
+<p>For example:</p>
+<pre><code>public static int binarySearch(int search, int[] array) {
+
+int start = 0;
+
+int end = array.length - 1;
+
+	while (start &lt;= end) {
+
+		int middle = (start + end) / 2;
+
+		if (search &lt; array[middle]) {
+
+			end = middle - 1;
+
+		}
+
+		if (search &gt; array[middle]) {
+
+			start = middle + 1;
+
+		}
+
+		if (search == array[middle]) {
+
+			return middle;
+
+		}
+
+	}
+
+return -1;
+
+}
+</code></pre>
+<p><img src="https://www.geeksforgeeks.org/wp-content/uploads/Binary-Search.png" alt="enter image description here"></p>
+<p><em>How to do the Binary Search Recursively:</em></p>
+<pre><code>public static int binarySearchRecursive(int search, int[] array, int start, int end){
+
+int middle = (start + end)/2;
+
+	if(end &lt; start){
+
+		return -1;
+
+	}
+
+	if (search &lt; array[middle]){
+
+		return binarySearchRecursive(search, array, start, middle - 	1);
+
+	}
+
+	if (search &gt; array[middle]){
+
+		return binarySearchRecursive(search, array, middle + 1, end);
+
+	}
+
+	if (search == array[middle]){
+
+		return middle;
+
+	}
+
+return -1;
+
+}
+</code></pre>
+</div>
+</body>
+
+</html>

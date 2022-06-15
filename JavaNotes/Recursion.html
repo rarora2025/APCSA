@@ -1,0 +1,53 @@
+﻿<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Recursion</title>
+  <link rel="stylesheet" href="https://stackedit.io/style.css" />
+</head>
+
+<body class="stackedit">
+  <div class="stackedit__html"><h2 id="recursion">Recursion</h2>
+<p>What is Recursion?<br>
+The technique of making a function call itself. This technique can be accomplished either directly within the function itself, or indirectly through another method</p>
+<p>Recursive method</p>
+<ul>
+<li>a method calling itself</li>
+<li>recursive methods would be infinitely long (which would cause a stack overflow error), if they didn’t have some place to escape. Because of this, all recursive methods MUST have a <strong>base case</strong>.</li>
+</ul>
+<p>Halting Condition/Base Case:</p>
+<ul>
+<li>the condition where the function stops calling itself</li>
+<li>this is the final run through of the function</li>
+</ul>
+<p>In a method is called with a base case it returns a result. Otherwise, it divides the problem into two conceptutal pieces- one which it knows how to do and one which it does not know how to do. They are both identical to each other, but the one that it does know has to do, has a <strong>recursive call</strong> to the other. The one which it can’t do moves lower in the hierarchy, and when it finally splits into a base case, they return the result up the recursive call hierarchy until it reaches the first piece.</p>
+<h3 id="bigdecimal">BigDecimal</h3>
+<p>The BigDecimal class provides operations on double numbers for arithmetic, scale handling, rounding, comparison, format conversion and hashing. It can handle very large and very small floating point numbers with great precision but compensating with the time complexity a bit.<br>
+A BigDecimal consists of a random precision integer unscaled value and a 32-bit integer scale. If greater than or equal to zero, the scale is the number of digits to the right of the decimal point. If less than zero, the unscaled value of the number is multiplied by 10^(-scale).</p>
+<p><strong>Need Of BigDecimal</strong></p>
+<ul>
+<li>The two java primitive types(double and float) are floating point numbers, which is stored as a binary representation of a fraction and a exponent.</li>
+<li>Other primitive types(except boolean) are fixed-point numbers. Unlike fixed point numbers, floating point numbers will most of the times return an answer with a small error (around 10^-19) This is the reason why we end up with 0.009999999999999998 as the result of 0.04-0.03 in the above example.</li>
+</ul>
+<p>But BigDecimal provides us with the exact answer.</p>
+<h3 id="biginteger">BigInteger</h3>
+<p>The BigInteger class is used for mathematical operation which involves very big integer calculations that are outside the limit of all available primitive data types.</p>
+<p>For example factorial of 100 contains 158 digits in it so we can’t store it in any primitive data type available. We can store as large Integer as we want in it. There is no theoretical limit on the upper bound of the range because memory is allocated dynamically but practically as memory is limited you can store a number which has Integer.MAX_VALUE number of bits in it which should be sufficient to store mostly all large values.</p>
+<p>To perform operations on BigIntegers, use methods <code>BigInteger.add(BigInteger)</code><br>
+<code>BigInteger.divide(BigInteger)</code></p>
+<h3 id="recursion-vs-iteration">Recursion vs Iteration</h3>
+<p>The  Recursion and  Iteration both repeatedly execute the set of instructions.  Recursion is when a statement in a function  calls itself repeatedly. The  iteration  is when a loop  repeatedly executes until the controlling condition becomes false. The primary difference between recursion and iteration is that  recursio* is a process, always applied to a function and  iteration is applied to the  set of instructions which we want to get  repeatedly executed.</p>
+<p>Both iteration and recursion are based on a control statement: Iteration uses an iteration statement such as <code>for</code>, <code>while</code>, <code>do...while</code>, and recurses uses a selection statement such as <code>if</code>, <code>if...else</code>, and <code>switch</code></p>
+<p>Both iteration and recursion involve iteration, the difference is that iteration explicitly does it using an iteration statement, whereas recursion achieves it through repeated method calls</p>
+<p>Recursion takes up a lot more memory and time, because it has to copy everything over and over again.</p>
+<p><em><strong>Think of Recursion as recursive formulas, think of how you can express element in a set using other members of the set</strong></em></p>
+<p>for example in the fibonnaci sequence, every element f(n) is equal to f(n-1) + f(n-2);</p>
+<p>and in the factorials , every element f(n) is equal to n * f(n-1)</p>
+<p><a href="https://www.youtube.com/watch?v=B3U6LExgevE">https://www.youtube.com/watch?v=B3U6LExgevE</a></p>
+<p>Hanoi Towers</p>
+</div>
+</body>
+
+</html>

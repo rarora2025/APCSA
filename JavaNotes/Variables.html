@@ -1,0 +1,60 @@
+﻿<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Variables</title>
+  <link rel="stylesheet" href="https://stackedit.io/style.css" />
+</head>
+
+<body class="stackedit">
+  <div class="stackedit__html"><h2 id="variables">Variables</h2>
+<p><strong>Declaration vs Initialization vs Assignment</strong></p>
+<p><strong>declaration:</strong>  states the type of a variable, along with its name. A variable can be declared only once. It is used by the compiler to help programmers avoid mistakes such as assigning string values to integer variables. Before reading or assigning a variable, that variable must have been declared</p>
+<pre><code>int x 
+</code></pre>
+<p><strong>initialization:</strong>  it’s a special kind of assignment: the first. Before initialization objects have <code>null</code>value and primitive types have default values such as <code>0</code> or <code>false</code>. Can be done in conjunction with declaration.</p>
+<pre><code>x  = 10 //or...
+int x = 10 //both declaration and initalization 
+</code></pre>
+<p><strong>assignment:</strong>  to assign value to a variable. It can be done anywhere, only once with the final-identifier.</p>
+<pre><code>x = 20 //already been defined and initalized
+</code></pre>
+<p><strong>Primitive vs Non-Primitive</strong></p>
+<p><em>Primitive Types</em>- created by the programming language</p>
+<p>Some examples include:  <strong>boolean</strong>, <strong>char</strong> and numbers:</p>
+<ul>
+<li><code>byte</code> 1 byte -128 to 127.</li>
+<li><code>short</code> 2 bytes -32,768 to 32,767.</li>
+<li><code>int</code>  4 bytes -2,147,483,648 to 2,147,483,647.</li>
+<li><code>long</code> 8 bytes -9,223,372,036,854,775,808 to 9,223,372,036,854,775,80.</li>
+<li><code>float</code> 4 bytes 7 decimal digits.</li>
+<li><code>double</code> 8 bytes 16 decimal digits.</li>
+</ul>
+<p><em>Non-Primitive Types</em>- made by programmers, also called <code>reference variables</code></p>
+<p>Some examples include:</p>
+<ul>
+<li><code>Class</code></li>
+<li><code>Object</code></li>
+<li><code>String (an object)</code></li>
+<li><code>Array</code></li>
+<li><code>Interface</code></li>
+</ul>
+<p><strong>Memory Concepts</strong>- <em>destructive vs nondestructive</em></p>
+<ul>
+<li>
+<p>When a value replaces a previous value such as,<br>
+<code>int number1 = input.nextInt();</code><br>
+the process is said to be destructive</p>
+</li>
+<li>
+<p>When a value is read from a memory location and not destroyed- for example,<br>
+<code>int sum = number1 + number2;</code><br>
+this process is said to be nondestructive</p>
+</li>
+</ul>
+</div>
+</body>
+
+</html>

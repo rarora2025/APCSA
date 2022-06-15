@@ -1,0 +1,31 @@
+﻿<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Object-Oriented Design</title>
+  <link rel="stylesheet" href="https://stackedit.io/style.css" />
+</head>
+
+<body class="stackedit">
+  <div class="stackedit__html"><h3 id="object-oriented-design">Object-Oriented Design</h3>
+<p><img src="https://res.infoq.com/articles/ddd-in-practice/en/resources/ArchitectureDiagram_lg.gif" alt="enter image description here"></p>
+<p>What is most important for our purposes is to understand the basic principles and reasoning behind this layered approach.</p>
+<p><strong>The Application/Domain Layer</strong></p>
+<ul>
+<li>Classes that make up the problem solution parts of our design live in this layer. So, classes like the Date class we have been discussing would live in this layer.</li>
+</ul>
+<p><strong>Presentation Layer</strong></p>
+<ul>
+<li>User interface classes…classes that interact with the end users of a program and give a program its look and feel…live in their own layer, which is called a presentation layer in this diagram. The key idea here is that the user interface functionality is separated from the application functionality.</li>
+</ul>
+<p>So…we can have many user interface classes for a program without having to adapt the application classes to each different user interface.<br>
+For example, we might have classes in the presentation layer that provide a graphical user interface…or GUI…functionality that includes things like windows, buttons, and drop-down menus. Or…we could have a class that simply consists of a main() method that performs very basic prompts.</p>
+<p>—We can represent the relationship between these two (identify) by drawing a line from all of the Application Layers to all of the presentation layers and then writing “uses” on the line to specify that the presentation layer uses the domain layer.</p>
+<p><em>In an object-oriented design that deals with manipulating information about full-time and part-time employees in a corporation, in what part of the design would a PartTimeEmployee class and a FullTimeEmployee class reside?</em></p>
+<p>The correct answer is the domain or application layer.</p>
+</div>
+</body>
+
+</html>

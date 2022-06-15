@@ -1,0 +1,82 @@
+﻿<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Enums</title>
+  <link rel="stylesheet" href="https://stackedit.io/style.css" />
+</head>
+
+<body class="stackedit">
+  <div class="stackedit__html"><h2 id="java-enums">Java Enums</h2>
+<p>An  <code>enum</code>  is a special “class” that represents a group of  <strong>constants</strong>  (unchangeable variables, like  <code>final</code>  variables).</p>
+<p>To create an  <code>enum</code>, use the  <code>enum</code>  keyword (instead of class or interface), and separate the constants with a comma. Note that they should be in uppercase letters:</p>
+<h3 id="example">Example</h3>
+<pre class=" language-java"><code class="prism  language-java"><span class="token keyword">enum</span> Level <span class="token punctuation">{</span>
+  LOW<span class="token punctuation">,</span>
+  MEDIUM<span class="token punctuation">,</span>
+  HIGH
+<span class="token punctuation">}</span>
+
+</code></pre>
+<p>You can access  <code>enum</code>  constants with the  <strong>dot</strong>  syntax:</p>
+<p>Level myVar = Level.MEDIUM;</p>
+<p><a href="https://www.w3schools.com/java/showjava.asp?filename=demo_enums">Run example »</a></p>
+<p>Enum is short for “enumerations”, which means “specifically listed”.</p>
+<hr>
+<h2 id="enum-inside-a-class">Enum inside a Class</h2>
+<p>You can also have an  <code>enum</code>  inside a class:</p>
+<h3 id="example-1">Example</h3>
+<pre class=" language-java"><code class="prism  language-java"><span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">MyClass</span> <span class="token punctuation">{</span>
+  <span class="token keyword">enum</span> Level <span class="token punctuation">{</span>
+    LOW<span class="token punctuation">,</span>
+    MEDIUM<span class="token punctuation">,</span>
+    HIGH
+  <span class="token punctuation">}</span>
+
+  <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">main</span><span class="token punctuation">(</span>String<span class="token punctuation">[</span><span class="token punctuation">]</span> args<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    Level myVar <span class="token operator">=</span> Level<span class="token punctuation">.</span>MEDIUM<span class="token punctuation">;</span> 
+    System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>myVar<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+</code></pre>
+<p>The output will be:</p>
+<p><code>MEDIUM</code></p>
+<p><a href="https://www.w3schools.com/java/showjava.asp?filename=demo_enums_class">Run example »</a></p>
+<hr>
+<h2 id="enum-in-a-switch-statement">Enum in a Switch Statement</h2>
+<p>Enums are often used in  <code>switch</code>  statements to check for corresponding values:</p>
+<h3 id="example-2">Example</h3>
+<pre class=" language-java"><code class="prism  language-java"><span class="token keyword">enum</span> Level <span class="token punctuation">{</span>
+  LOW<span class="token punctuation">,</span>
+  MEDIUM<span class="token punctuation">,</span>
+  HIGH
+<span class="token punctuation">}</span>
+
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">MyClass</span> <span class="token punctuation">{</span>
+  <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">main</span><span class="token punctuation">(</span>String<span class="token punctuation">[</span><span class="token punctuation">]</span> args<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    Level myVar <span class="token operator">=</span> Level<span class="token punctuation">.</span>MEDIUM<span class="token punctuation">;</span>
+
+    <span class="token keyword">switch</span><span class="token punctuation">(</span>myVar<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      <span class="token keyword">case</span> LOW<span class="token operator">:</span>
+        System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"Low level"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">break</span><span class="token punctuation">;</span>
+      <span class="token keyword">case</span> MEDIUM<span class="token operator">:</span>
+         System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"Medium level"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">break</span><span class="token punctuation">;</span>
+      <span class="token keyword">case</span> HIGH<span class="token operator">:</span>
+        System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"High level"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">break</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+</code></pre>
+<p>The output will be:</p>
+<p><code>Medium level</code></p>
+</div>
+</body>
+
+</html>
