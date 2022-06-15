@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<diagram program="umlet" version="14.3.0">
+  <zoom_level>10</zoom_level>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>400</x>
+      <y>180</y>
+      <w>340</w>
+      <h>250</h>
+    </coordinates>
+    <panel_attributes>Song
+--
+-name: String
+-recording artist: String
+-category: String
+-price: Double 
+
+--
++getName(): String
++getArtist(): String
++getCategory(): String
++getPrice(): Double
++setName(fname: String, lname: String): void
++setArtist(artist: String): void
++setCategory(category: String): void
++setPrice(price: Double): void</panel_attributes>
+    <additional_attributes/>
+  </element>
+</diagram>
